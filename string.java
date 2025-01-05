@@ -223,9 +223,7 @@
 //       int count = 0;
 //        String sc = name.toUpperCase();
        
-//       for(int i =0; i< name.length(); i++){
-         
-       
+//       for(int i =0; i< name.length(); i++){      
 //          if(sc.charAt(i) != name.charAt(i)){
 //                count++;
 //          }
@@ -289,27 +287,32 @@
 //       vowel(str);
 //    }
 // }
-import java.util.Arrays;
-public class main{
-   public static void main(String args[]){
-      String str3 = "listen";
-      String str4  = "silentt";
-       str3 = str3.toLowerCase();
-      str4= str4.toLowerCase();
-      if(str3.length() == str4.length()){
-         char str5[] = str3.toCharArray();
-         char str6[] = str4.toCharArray();
-         Arrays.sort(str5);
-         Arrays.sort(str6);
-         Boolean result = Arrays.equals(str5 ,str6);
-System.out.print(str5 + " "+ str6);
-         if(result){
-            System.out.print("it is anagram");
-         }else{
-            System.out.print("it is not anagram");
-         }
-      }else{
-      System.out.print("it is not anagram");
-   }
-   }
-}
+
+
+
+
+
+// import java.util.Arrays;
+// public class main{
+//    public static void main(String args[]){
+//       String str3 = "listen";
+//       String str4  = "silentt";
+//        str3 = str3.toLowerCase();
+//       str4= str4.toLowerCase();
+//       if(str3.length() == str4.length()){
+//          char str5[] = str3.toCharArray();
+//          char str6[] = str4.toCharArray();
+//          Arrays.sort(str5);
+//          Arrays.sort(str6);
+//          Boolean result = Arrays.equals(str5 ,str6);
+// System.out.print(str5 + " "+ str6);
+//          if(result){
+//             System.out.print("it is anagram");
+//          }else{
+//             System.out.print("it is not anagram");
+//          }
+//       }else{
+//       System.out.print("it is not anagram");
+//    }
+//    }
+// }

@@ -1,6 +1,6 @@
 import java.util.*;
 import java.util.Arrays;
-public class practice {
+// public class practice {
     // public static boolean oddEven(){
     //     Scanner sc = new Scanner(System.in);
     //      int number = sc.nextInt();
@@ -261,36 +261,150 @@ public class practice {
   //      }     
   //      return -1; 
   //    }
-  public static void reverseNum(int num[]){
-    int count = num.length -1;
-    int value =0;
-    for(int i =0; i<=num.length/2; i++){
-        value = num[i];
-        num[i] = num[count];
-        num[count] = value;
-        count--;
-        System.out.println(num[i]);
-    }
-    for(int i = 0; i<num.length; i++){
-      System.out.print(num[i]);
+  // public static void reverseNum(int num[]){
+  //   int count = num.length -1;
+  //   int value =0;
+  //   for(int i =0; i<=num.length/2; i++){
+  //       value = num[i];
+  //       num[i] = num[count];
+  //       num[count] = value;
+  //       count--;
+  //       System.out.println(num[i]);
+  //   }
+  //   for(int i = 0; i<num.length; i++){
+  //     System.out.print(num[i]);
+  //   }
+  // }
+  // public static void bubbleShort(int num[]){
+  //   int count= 1;
+  //   for(int i=0; i< num.length; i++){
+  //     int swap =0;
+  //     for(int j=count; j<num.length; j++){
+  //         if(num[i] > num[j]){
+  //            swap = num[i];
+  //            num[i]= num[j];
+  //            num[j] = swap;
+  //         }
+  //     }
+  //     count++;
+  //   }
+  //   for(int i= 0; i<num.length; i++){
+  //     System.out.print( num[i] + " ");
+  //   }
+  // }
+
+  // public static void selectionShort(int num[]){
+  //   int count = 1;
+    
+  //   for(int i= 0; i< num.length; i++){
+  //     int swap= 0;
+  //     for(int j=count; j< num.length; j++){
+  //           if(num[j] < num[i]){
+  //                swap = num[j];
+  //                num[j] = num[i];
+  //                num[i]= swap;
+  //           } 
+              
+  //     }
+  //      count++;
+  //   }
+  //   for(int j=0; j< num.length; j++){
+  //     System.out.print(num[j] + " ");
+  //   }
+  // }
+  // public static void insertionShort(int num[]){
+  //   for(int i =0 ; i< num.length; i++){
+  //       for(int j= i+1; j< num.length; j++){
+
+  //       }
+  //   }
+  // }
+
+//   public static void findKey(int num[][],int key) {
+//     for(int i = 0; i< num.length; i++){
+//       for(int j = 0; j < num[0].length; j++){
+//         if(num[i][j] < key){
+//              key = num[i][j];
+//         }
+//       }
+//     }
+//     System.out.print("lowest element"+" " + key);
+//   }
+//     public static void main(String args[]){
+//       // int num[] = {1,23,4,22,19,25,8,44};
+//       int num[][] = new int[3][3];
+//        Scanner sc = new Scanner(System.in);
+//        int n = num.length;
+//        int m = num[0].length;
+
+//        for(int i=0; i< n; i++){
+//         for(int j = 0; j< m; j++){
+//              num[i][j] = sc.nextInt();
+//         }
+//        }
+//        for(int i=0; i< n; i++){
+//         for(int j = 0; j< m; j++){
+//             System.out.print(num[i][j] + " ");
+//         }
+//         System.out.println();
+//        }
+//        int key = Integer.MAX_VALUE;
+//        findKey(num,key);
+       
+//       // int index= binarySearch(num , 19);
+//       //  reverseNum(num);
+//     //  bubbleShort(num);
+//     // selectionShort(num);
+//       // printStar(5);
+//     //  System.out.print( fact(5));
+//       // hellowRect(5);
+//       // chPattern(5);
+//       // halfPyramid(5);
+//       // printStar(6);
+//     //  System.out.print(fact(5));
+//     // mul(4);
+//     //  System.out.print(reverseNum(num));
+//     // sumNum(10);
+//     // sqrPattern(4);
+//     //  System.out.print( sumNum(7));
+//     }
+// }
+
+
+
+ public class main{
+  public static void spiralMatrix(int num[][]){
+    int length = num.length-1;
+    int length2 = num[0].length-1;
+    int start = length;
+    int top = length2;
+    for(int i= 0; i< num.length; i++){
+      for(int j =i ; j<= top; j++){
+        System.out.print(num[i][j]);
+      }
+      for(int j = i+1; j<= length-i; j++){
+        System.out.print(num[j][start]);
+      }
+      for(int j = length2-i-1; j>= i; j--){
+        System.out.print(num[start][j]);
+      }
+      for(int j = length2-i-1; j>= i+1; j--){
+        System.out.print( num[j][i]);
+      }
+      top--;
+      start--;
+      
     }
   }
-    public static void main(String args[]){
-      int num[] = {1,3,4,2,19,2,8,4};
-      // int index= binarySearch(num , 19);
-       reverseNum(num);
-     
-      // printStar(5);
-    //  System.out.print( fact(5));
-      // hellowRect(5);
-      // chPattern(5);
-      // halfPyramid(5);
-      // printStar(6);
-    //  System.out.print(fact(5));
-    // mul(4);
-    //  System.out.print(reverseNum(num));
-    // sumNum(10);
-    // sqrPattern(4);
-    //  System.out.print( sumNum(7));
-    }
-}
+  public static void main(String args[]){
+    int num[][] = {
+    {1,2,3,4,6},
+    {2,3,4,5,9},
+    {3,7,8,4,9},
+    {3,7,8,4,5},
+    {3,7,8,4,9},
+    };
+    spiralMatrix(num);
+  
+ }
+ }
