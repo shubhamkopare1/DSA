@@ -116,16 +116,107 @@ public class StackB{
             
               s.push(top);
          }
-    public static void main(String args[]){
-        Stack<Integer> s = new Stack<>();
-        s.push(4);
-        s.push(2);
-        s.push(9);
-        s.push(3);
-       printAtBottom(s,7);
-         int idx =0;
-         while(!s.isEmpty()){
-              System.out.print(s.pop());
+         public static String reverseString(String str){
+
+          Stack <Character> s = new Stack<>();
+                   int idx = 0;
+                   while(idx != str.length()){
+                       s.push(str.charAt(idx));
+                       idx++;
+                   }
+                    StringBuilder result = new StringBuilder(" ");
+                   while(!s.isEmpty() ){
+                     
+                       result.append(s.pop());
+                       
+                   }
+                   return result.toString();
+               
          }
+
+         public static void reveseStack(Stack <Integer> s){
+                 if(s.isEmpty()){
+                    return;
+                 }
+                int top = s.pop();
+               reveseStack(s);
+               printAtBottom(s, top);
+         }
+         public static void printStack(Stack<Integer> s){
+
+              while(!s.isEmpty()){
+                  System.out.print(s.pop());
+              }
+         }
+
+
+         public static Boolean isValid(String str){
+           Stack<Character> s = new Stack<>();
+
+            for(int i=0; i< str.length(); i++){
+                char ch = str.charAt(i);
+                   if(ch == '(' || ch == '{' || ch == '['){
+                    s.push(ch);
+                   }
+                   else{
+                    if(s.isEmpty()){
+                        return false;
+                    }else{
+                        if(ch == '}' && s.peek() ==  '{'|| ch == ']' && s.peek() == '['|| ch == ')' && s.peek() == '('){
+                            s.pop();
+                        }else{
+                            return false;
+                        }
+                    }
+                   }
+            }
+            if(s.isEmpty()){
+                return true;
+            }else{
+                return false;
+            }
+          
+         }
+
+         public static Boolean isDuplicate(String str){
+            Stack <Character> s = new Stack<>();
+            
+             for(int i=0; i<str.length(); i++){
+                    char ch = str.charAt(i);
+                   if(ch == ')'){
+                    int count = 0;
+                    while(s.peek() != '('){
+                        s.pop();
+                        count++;
+                    }
+                    if(count <1){
+                        return true;
+                    }else{
+                          s.pop(); 
+                    }
+                   }else{
+                    s.push(ch);
+                   }
+             }
+             return false;
+
+         }
+    public static void main(String args[]){
+        // Stack<Integer> s = new Stack<>();
+    String str = "((a+b) + (b+d))";
+//    System.out.print(isValid(str));
+   System.out.print(isDuplicate(str));
+        // s.push(4);
+        // s.push(2);
+        // s.push(9);
+        // s.push(3);
+        // reveseStack(s);
+        // printStack(s);
+     //   printAtBottom(s,7);
+     //     int idx =0;
+     //     while(!s.isEmpty()){
+     //          System.out.print(s.pop());
+     //     }
+    //  System.out.print(reverseString("abc"));
     }
 }
