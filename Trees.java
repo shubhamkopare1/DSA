@@ -110,16 +110,16 @@ public class tree{
 
 
     
-        // public static int maxHeight(Node root){
-        //      if(root == null){
-        //         return 0;
-        //      }
+        public static int maxHeight(Node root){
+             if(root == null){
+                return 0;
+             }
 
-        //      int lh = maxHeight(root.left);
-        //      int rh = maxHeight(root.right);
-        //      int max = Math.max(lh,rh)+1;
-        //      return max;
-        // }
+             int lh = maxHeight(root.left);
+             int rh = maxHeight(root.right);
+             int max = Math.max(lh,rh)+1;
+             return max;
+        }
 
         //   public static int count(Node root){
         //     if(root == null){
@@ -130,15 +130,36 @@ public class tree{
         //     return lh + rh +1;
 
         //   }
-        public static int sumNode(Node root){
-            if(root == null){
-                return 0;
-            }
-            int leftData = sumNode(root.left);
-            int rightData = sumNode(root.right);
-            return leftData + rightData + root.data;
+        // public static int sumNode(Node root){
+        //     if(root == null){
+        //         return 0;
+        //     }
+        //     int leftData = sumNode(root.left);
+        //     int rightData = sumNode(root.right);
+        //     return leftData + rightData + root.data;
 
+        // }
+
+    public static class Info {
+        int diam;
+        int ht;
+
+        public Info(int diam, int ht) {
+            this.diam = diam;
+            this.ht = ht;
         }
+    }
+           public static Info diameter(Node root){
+              if(root == null){
+                return new Info(0,0);
+              }
+                Info leftInfo = diameter(root.left);
+                Info rightInfo = diameter(root.right);
+
+                int diam = Math.max(Math.max(leftInfo.diam,rightInfo.diam),leftInfo.ht + rightInfo.ht +1);
+                int ht = Math.max(leftInfo.ht, rightInfo.ht)+1;
+                return new Info(diam,ht);
+            }
 
     public static void main(String args[]){
         Node root = new Node(1);
@@ -146,10 +167,11 @@ public class tree{
         root.right = new Node(3);
         root.left.left = new Node(4);
         root.left.right = new Node(5);
-        root.right.left = new Node(5);
-        root.right.right= new Node(5);
+        root.right.left = new Node(6);
+        root.right.right= new Node(7);
         // System.out.print(maxHeight(root));
         // System.out.print(count(root));
-        System.out.print(sumNode(root));
+        // System.out.print(sumNode(root));
+        System.out.print(diameter(root).diam);
     }
 }
